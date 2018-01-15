@@ -8,8 +8,8 @@ Course at [https://JavaScript30.com](https://JavaScript30.com)
 
 ## Progress
 1. Completed
-2. Incomplete
-3. Incomplete
+2. Completed
+3. Completed
 4. Incomplete
 5. Incomplete
 6. Incomplete
