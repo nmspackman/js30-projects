@@ -75,11 +75,11 @@
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-    const summed = data.reduce((tally, item) => {
+    const talliedTransport = data.reduce((tally, item) => {
         !tally[item] ? tally[item] = 1 : tally[item]++;
         return tally;
       }, {});
-    console.log(summed)
+    console.log(talliedTransport)
   </script>
 </body>
 </html>
