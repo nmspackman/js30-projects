@@ -14,7 +14,7 @@ Course at [https://JavaScript30.com](https://JavaScript30.com)
 5. Completed
 6. Completed
 7. Completed
-8. Incomplete
+8. Completed
 9. Incomplete
 10. Incomplete
 11. Incomplete
