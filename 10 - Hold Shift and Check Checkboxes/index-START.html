@@ -99,6 +99,52 @@
   </div>
 
 <script>
+  // I could've used the inputs and js's sibling attribute
+  const list = document.querySelectorAll('.item');
+  let firstIndex;
+
+  const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+  let lastChecked;
+  
+  // On my first try, I used an index based handler.
+  // I realize that it's more fragile due to possible HTML changes, but that
+  // was my initial thought process. It's hard to stray from index based thinking
+  // when dealing with lists...
+  // The benefit would only come with huge lists since it only iterates over the necessary
+  // elements and if we were doing more heavy processing.
+  function handleClick(e) {
+    if (e.shiftKey && this.checked) {
+      // I don't know how fast this line actually is
+      let endIndex = [...list].indexOf(e.target.parentElement);
+
+      // I use min and max to avoid another if and two for loops
+      for (let i = Math.min(firstIndex, endIndex); i <= Math.max(firstIndex, endIndex); i++){
+        list[i].querySelector('input').checked = true
+      }
+    } else {
+      firstIndex = [...list].indexOf(e.target.parentElement);
+    }
+  }
+
+  // This is the tutorial solution. It uses a switch based system.  
+  function handleCheck(e) {
+    let inBetween = false;
+    if (e.shiftKey && this.checked) {
+      checkboxes.forEach(checkbox => {
+        if (checkbox == this || checkbox == lastChecked) {
+          inBetween = !inBetween;
+        }
+
+        if (inBetween) {
+          checkbox.checked = true;
+        }
+      });
+    }
+    lastChecked = this;
+  }
+  
+  // we can reduce the amount of event handlers by pulling the listener up 
+  document.querySelector('.inbox').addEventListener('click', handleCheck);
 </script>
 </body>
 </html>
